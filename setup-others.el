@@ -27,7 +27,8 @@
 (use-package super-save
   :diminish super-save-mode
   :init
-  (setq super-save-auto-save-when-idle t)
+  (setq super-save-auto-save-when-idle t
+        auto-save-default nil)
   :config
   (super-save-mode 1))
 
@@ -59,7 +60,7 @@
 (use-package esup)
 
 ;; backup files
-(defvar backup-directory "~/.emacs.d/backups/")
+(defvar backup-directory (expand-file-name "backups/" user-emacs-directory))
 (if (not (file-exists-p backup-directory))
     (make-directory backup-directory t))
 (setq

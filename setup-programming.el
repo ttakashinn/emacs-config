@@ -8,8 +8,8 @@
 (use-package yasnippet
   ;; :init
   ;; if put snippets at the custom directories, need to define yas-snippet-dirs explicitly
-  ;; (add-to-list 'load-path "~/.emacs.d/snippets")
-  ;; (setq yas-snippet-dirs '("~/.emacs.d/snippets") ;; personal snippets
+  ;; (add-to-list 'load-path (expand-file-name "snippets" user-emacs-directory))
+  ;; (setq yas-snippet-dirs '((expand-file-name "snippets" user-emacs-directory)) ;; personal snippets
   ;; )
   :hook ((prog-mode . yas-minor-mode)
          (snippet-mode . yas-minor-mode)
@@ -92,9 +92,9 @@
   :init
   (setq helm-ag-base-command "rg --no-heading" ;; change to use rg
         helm-ag-success-exit-status '(0 2))
-  :bind (("s-a" . helm-ag)
-         ("s-d" . helm-do-ag)
-         ("s-r" . helm-do-ag-project-root)))
+  :bind (("C-c a" . helm-ag)
+         ("C-c d" . helm-do-ag)
+         ("C-c r" . helm-do-ag-project-root)))
 
 ;; TODO: config search engine to rg
 
@@ -181,8 +181,8 @@
          (lsp-mode . lsp-enable-which-key-integration))
   :init
   (setq lsp-completion-provider :none) ;; important - prevent lsp-mode add company-capf to the head of company-backends
-  (setenv "PATH" (concat "~/.emacs.d/packages/elixir-ls/release:" (getenv "PATH")))
-  (add-to-list 'exec-path "~/.emacs.d/packages/elixir-ls/release"))
+  (setenv "PATH" (concat (expand-file-name "packages/elixir-ls/release:" user-emacs-directory) (getenv "PATH")))
+  (add-to-list 'exec-path (expand-file-name "packages/elixir-ls/release" user-emacs-directory)))
 
 (use-package lsp-ui
   :bind (:map lsp-ui-mode-map
@@ -209,12 +209,6 @@
   :mode "\\.scss\\'"
   :init
   (setq css-indent-offset 2))
-
-;; (use-package eglot
-;;   :hook ((elixir-mode . eglot-ensure))
-;;   :config
-;;   (add-to-list 'eglot-server-programs '(elixir-mode "~/.emacs.d/packages/elixir-ls/release/language_server.sh"))
-;; )
 
 (provide 'setup-programming)
 ;;; setup-programming.el ends here

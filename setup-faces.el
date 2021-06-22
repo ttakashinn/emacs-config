@@ -4,20 +4,26 @@
 
 ;; you won't need any of the bar thingies
 ;; turn it off to save screen estate
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; the blinking cursor is nothing, but an annoyance
 (blink-cursor-mode -1)
+
+;; show buffer size in modeline
 (size-indication-mode t)
+
+;; show number of column
 (column-number-mode 1)
 
-(setq scroll-margin 0
+(setq scroll-margin 5
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 
+(setq inhibit-splash-screen t)
 (setq inhibit-startup-screen t)
+(setq inhibit-startup-echo-area-message t)
 (setq inhibit-startup-message t)
 (setq default-directory "~/")
 
@@ -37,11 +43,16 @@
 (set-face-attribute 'italic nil
                     :family "Inconsolata for Powerline-Italic")
 
+;; Scrolling with the mouse.
+(setq mouse-wheel-scroll-amount '(1))    ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't)       ;; scroll window under mouse
+
 ;;;;;;;;;;;;;;;;;
 ;; DOOM THEMES ;;
 ;;;;;;;;;;;;;;;;;
 (use-package doom-themes :defer t)
-(load-theme 'doom-vibrant t)
+(load-theme 'doom-zenburn t)
 
 ;; icons packages
 (use-package all-the-icons)
@@ -91,7 +102,7 @@
   ;; Set the title
   (setq dashboard-banner-logo-title "=====★===== Neit =====★=====")
   ;; Set the banner
-  (setq dashboard-startup-banner "~/.emacs.d/custom/yinyang.png")
+  (setq dashboard-startup-banner (expand-file-name "custom/yinyang.png" user-emacs-directory))
   ;; Value can be
   ;; 'official which displays the official emacs logo
   ;; 'logo which displays an alternative emacs logo

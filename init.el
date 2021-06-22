@@ -1,3 +1,7 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
+
 ;; Make startup faster by reducing the frequency of garbage
 ;; collection.  The default is 800 kilobytes.  Measured in bytes.
 (setq gc-cons-threshold 100000000)
@@ -41,8 +45,11 @@
 ;; run minor mode in background and not show in modeline
 (use-package diminish)
 
+;; Always as "y or n", not that annoying "yes or no".
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; add your modules path
-(add-to-list 'load-path "~/.emacs.d/custom/")
+(add-to-list 'load-path (expand-file-name "custom" user-emacs-directory))
 
 ;; load your modules
 (require 'setup-faces)
@@ -50,3 +57,6 @@
 (require 'setup-editing)
 (require 'setup-convenience)
 (require 'setup-programming)
+
+(provide 'init)
+;;; init ends here

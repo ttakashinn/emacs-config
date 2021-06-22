@@ -101,6 +101,15 @@
 (use-package clean-aindent-mode
   :hook (prog-mode . clean-aindent-mode))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; start of multiple cursors config
+(use-package multiple-cursors
+  :bind (("s-d" . mc/mark-next-like-this)
+         ("s-D" . mc/unmark-next-like-this)
+         ("M-s-D" . mc/skip-to-next-like-this)
+         ("S-s-<mouse-1>" . mc/add-cursor-on-click)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; end of multiple cursors config
+
 ;; update any change made on file to the current buffer
 (global-auto-revert-mode)
 
@@ -110,8 +119,12 @@
 ;; enable electric-pair-mode
 (add-hook 'prog-mode-hook 'electric-pair-mode)
 
-;; whenever you create useless whitespace, the whitespace is highlighted
-(add-hook 'prog-mode-hook (lambda () (interactive) (setq show-trailing-whitespace 1)))
+;; Show trailing whitespace on programming modes.
+(add-hook 'prog-mode-hook
+          '(lambda () (setq-default show-trailing-whitespace t)))
+
+;; Remove trailing whitespace on save.
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; activate whitespace-mode to view all whitespace characters
 (global-set-key (kbd "C-c w") 'whitespace-mode)
