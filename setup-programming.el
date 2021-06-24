@@ -128,7 +128,7 @@
   :init
   (setq helm-ag-base-command "rg --no-heading" ;; change to use rg
         helm-ag-success-exit-status '(0 2))
-  :bind (("C-c a" . helm-ag)
+  :bind (("C-c g" . helm-ag)
          ("C-c d" . helm-do-ag)
          ("C-c r" . helm-do-ag-project-root)))
 

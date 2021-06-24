@@ -26,22 +26,6 @@
 (setq inhibit-startup-echo-area-message t)
 (setq inhibit-startup-message t)
 
-;; more useful frame title, that show either a file or a
-;; buffer name (if the buffer isn't visiting a file)
-;; taken from prelude-ui.el
-(setq frame-title-format
-      '("TTAKASHINN - " (:eval (if (buffer-file-name)
-                                            (abbreviate-file-name (buffer-file-name))
-                                          "%b"))))
-
-;; change font to Inconsolata for better looking text
-;; remember to install the font Inconsolata first
-(setq default-frame-alist '((font . "Inconsolata for Powerline-13")))
-;; set italic font for italic face, since Emacs does not set italic
-;; face automatically
-(set-face-attribute 'italic nil
-                    :family "Inconsolata for Powerline-Italic")
-
 ;; Scrolling with the mouse.
 (setq mouse-wheel-scroll-amount '(1))    ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling

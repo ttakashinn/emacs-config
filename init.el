@@ -17,9 +17,6 @@
                               (time-subtract after-init-time before-init-time)))
                      gcs-done)))
 
-;; (add-to-list 'initial-frame-alist '(fullscreen . maximized)) ;;only maximize the first frame
-;; (add-to-list 'default-frame-alist '(fullscreen . maximized)) ;; maximize all frames
-
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; config straight.el ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -70,12 +67,6 @@
 
 ;; default directory
 (setq default-directory "~/")
-
-;; org directory
-(setq org-directory "~/OneDrive/work/org")
-
-;; default init mode
-(setq initial-major-mode 'org-mode)
 
 ;; add your modules path
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
