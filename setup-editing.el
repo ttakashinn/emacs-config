@@ -25,6 +25,18 @@
 ;; disable region selection using shift key
 (setq shitf-select-mode nil)
 
+;; org
+(use-package org
+  :init
+  (setq org-directory "~/OneDrive/work/org/")
+  (setq org-startup-indented t)
+  :bind (("C-c l" . org-stored-link)
+         ("C-c a" . org-agenda)
+         ("C-c c" . org-capture))
+  :hook ((org-mode . visual-line-mode)
+         (org-mode . toggle-word-wrap)
+         (org-mode . variable-pitch-mode)))
+
 ;; C-w kills entire line when no active regions
 (use-package whole-line-or-region
   :diminish whole-line-or-region-local-mode
