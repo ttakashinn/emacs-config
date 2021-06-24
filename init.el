@@ -42,11 +42,37 @@
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
+;; check OS type, if is macOS, bind meta-key to command-key
+(cond
+ ((string-equal system-type "windows-nt") ; Microsoft Windows
+  (progn
+    (message "Microsoft Windows")))
+ ((string-equal system-type "darwin") ; Mac OS X
+  (progn
+    (setq mac-option-key-is-meta t)
+    (setq mac-command-key-is-meta nil)
+    (setq mac-command-modifier 'super)
+    (setq mac-option-modifier 'meta)
+    (message "Mac OS X")))
+ ((string-equal system-type "gnu/linux") ; linux
+  (progn
+    (message "Linux"))))
+
 ;; run minor mode in background and not show in modeline
 (use-package diminish)
 
 ;; Always as "y or n", not that annoying "yes or no".
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; user info
+(setq user-full-name "neit"
+      user-mail-address "kamikaze129@gmail.com")
+
+;; default directory
+(setq default-directory "~/")
+
+;; org directory
+(setq org-directory "~/OneDrive/work/org")
 
 ;; add your modules path
 (add-to-list 'load-path (expand-file-name "custom" user-emacs-directory))
