@@ -60,7 +60,7 @@
 ;; Customized functions               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(global-set-key (kbd "C-a") 'nt/smarter-move-beginning-of-line)
+(global-set-key (kbd "C-a") 'nt/smarter-beginning-of-line)
 (global-set-key (kbd "C-x k") 'nt/kill-default-buffer)
 (global-set-key (kbd "<C-return>") 'nt/open-line-below)
 (global-set-key (kbd "<C-S-return>") 'nt/open-line-above)
@@ -84,13 +84,11 @@
 
 (defun nt/smarter-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
-
 Move point to the first non-whitespace character on this line.
 If point is already there, move to the beginning of the line.
 Effectively toggle between the first non-whitespace character and
 the beginning of the line.
-
-If ARG is not nil or 1, move forward ARG - 1 lines first. If
+If ARG is not nil or 1, move forward ARG - 1 lines first.  If
 point reaches the beginning or end of the buffer, stop there."
   (interactive "^p")
   (setq arg (or arg 1))
