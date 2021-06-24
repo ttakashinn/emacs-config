@@ -13,3 +13,7 @@ My emacs config backup
 
 1. Delete all packages in `.emacs.d/straight/repos` and `.emacs.d/straight/build`
 2. Start emacs and wait for it to re-clone and re-build packages.
+
+### Screenshot
+
+<img width="814" alt="dashboard" src="https://user-images.githubusercontent.com/9399414/123299377-a7392f80-d543-11eb-9e83-f388c8d8f024.png">
