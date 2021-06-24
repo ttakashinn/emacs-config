@@ -99,7 +99,7 @@
   :config
   (setq dashboard-projects-backend 'projectile)
   ;; Set the title
-  (setq dashboard-banner-logo-title "=====★===== Neit =====★=====")
+  ;; (setq dashboard-banner-logo-title "")
   ;; Set the banner
   (setq dashboard-startup-banner (expand-file-name "config/ttakashinn.txt" user-emacs-directory))
   ;; Value can be
@@ -121,8 +121,8 @@
   (setq dashboard-set-file-icons t)
   ;; Format: "(icon title help action face prefix suffix)"
   (setq dashboard-set-navigator nil)
-  ;; (setq dashboard-set-init-info nil)
-  ;; (setq dashboard-init-info "<==★== Neit ==★==>")
+  (setq dashboard-set-init-info t)
+  (setq dashboard-init-info "★ ★ ★")
 
   ;;(setq dashboard-set-footer t)
   ;;(setq dashboard-footer-messages '("Dashboard is pretty cool!"))

@@ -75,22 +75,14 @@
 (setq org-directory "~/OneDrive/work/org")
 
 ;; add your modules path
-;; (add-to-list 'load-path (expand-file-name "custom" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 
 ;; load your modules
-;;(require 'setup-faces)
-;;(require 'setup-others)
-;;(require 'setup-editing)
-;;(require 'setup-convenience)
-;;(require 'setup-programming)
-
-(defvar config-directory (expand-file-name "config" user-emacs-directory))
-
-(setq config-packages '(faces others editing convenience programming))
-
-(dolist (pack config-packages)
-  (setq pack-directory (expand-file-name pack config-directory))
-  (use-package '(pack :local-repo pack-directory)))
+(require 'setup-faces)
+(require 'setup-others)
+(require 'setup-editing)
+(require 'setup-convenience)
+(require 'setup-programming)
 
 (provide 'init)
 ;;; init ends here
